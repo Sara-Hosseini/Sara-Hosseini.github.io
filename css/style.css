@@ -97,3 +97,24 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #4ea8de;
 }
+@media (max-width: 600px) {
+    nav ul {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    #skills ul {
+        grid-template-columns: 1fr;
+    }
+    #hero {
+        padding: 60px 16px;
+    }
+    #hero h1 {
+        font-size: 32px;
+    }
+    section {
+        padding: 40px 16px;
+    }
+    .project, .experience, .education {
+        padding: 16px;
+    }
+}
