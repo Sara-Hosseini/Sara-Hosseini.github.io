@@ -64,3 +64,10 @@ h2{
     border-radius: 6px;
     text-align: left;
 }
+.project, .experience, .education {
+    background-color: #f4f6fb;
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom:24 px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
