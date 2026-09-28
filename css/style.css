@@ -71,3 +71,29 @@ h2{
     margin-bottom:24 px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
+h3{
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #65657b;
+}
+input[type="text"], input[type="email"], 
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    border-radius: 4px;
+}
+input[type="submit"] {
+    background-color: #1a1a2e;
+    color: #f0f0f0;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 4px;
+}
+input[type="submit"]:hover {
+    background-color: #4ea8de;
+}
