@@ -137,9 +137,24 @@ input[type="submit"]:hover {
         flex-wrap: wrap;
         gap: 16px;
     }
-    #skills ul {
-        grid-template-columns: 1fr;
-    }
+    .skills-group h3 {
+  margin-bottom: 12px;
+}
+
+.skills-group ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.skills-group li {
+  background-color: var(--color-card);
+  padding: 6px 16px;
+  border-radius: 6px;
+  text-align: left;
+}
     #hero {
         padding: 60px 16px;
     }
