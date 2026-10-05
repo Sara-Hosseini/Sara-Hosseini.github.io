@@ -23,8 +23,48 @@
     </section>
 
     <section>
-        <h2>Overview</h2>
-        <p>Content coming soon.</p>
+        <p><em>Portfolio project on a simulated European mobility platform (synthetic data)</em></p>
+
+        <h2>Problem</h2>
+        <p>Where do users drop out of the booking funnel, which acquisition channels bring the best users, and does a simplified booking flow improve conversion?</p>
+
+        <h2>Approach</h2>
+        <p>SQL analysis on a SQLite database, six Python notebooks covering funnel, D1/D7/D30 retention, cohorts and segmentation, an A/B test evaluated with significance testing and 95% confidence intervals, and a multi-page Power BI dashboard.</p>
+
+        <h2>Data</h2>
+        <p>Synthetic dataset generated for this project: 5,000 users, 141,813 events and 2,731 completed bookings (January 2024 to June 2025), checked with 23 validation checks and 25 automated tests.</p>
+
+        <h2>Tools</h2>
+        <p>Python, SQL, SQLite, Pandas, NumPy, SciPy, Matplotlib, Seaborn, Power BI, Pytest, Git</p>
+    </section>
+
+    <section>
+        <h2>Conversion Funnel</h2>
+        <img src="assets/images/23_conversion_funnel.png" alt="Conversion funnel chart showing drop-off at each booking stage">
+        <p>Web conversion (about 24%) trailed iOS (about 30%) and Android (about 28.8%), pointing to the Web booking journey for review.</p>
+    </section>
+
+    <section>
+        <h2>Retention by Cohort</h2>
+        <img src="assets/images/21_cohort_retention_heatmap.png" alt="Cohort retention heatmap showing D1, D7 and D30 retention by signup month">
+        <p>Referral users converted best (about 40%) versus Paid Search (about 23.5%). Feature adoption was linked to longer engagement, but the relationship is observational, not causal.</p>
+    </section>
+
+    <section>
+        <h2>A/B Test: Simplified Booking Flow</h2>
+        <img src="assets/images/32_experiment_dashboard.png" alt="A/B test dashboard comparing conversion rate between control and simplified booking flow">
+        <p>The simplified booking flow lifted conversion from 26.9% to 30.5% (+3.6 percentage points), evaluated with significance testing and 95% confidence intervals.</p>
+    </section>
+
+    <section>
+        <h2>Executive Summary</h2>
+        <img src="assets/images/33_executive_kpi_tiles.png" alt="Executive KPI dashboard tiles summarizing key metrics">
+    </section>
+
+    <section>
+        <h2>Relevance</h2>
+        <p>The full analyst workflow in one project: framing business questions, SQL, exploratory analysis, statistical testing, dashboarding and recommendations. Results are drawn from a synthetic dataset and demonstrate the method rather than real business outcomes.</p>
+        <p><a class="btn" href="https://github.com/Sara-Hosseini/product-analytics-case-study" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
     </section>
 
     <script src="js/main.js"></script>
