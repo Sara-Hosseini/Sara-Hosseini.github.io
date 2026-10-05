@@ -39,26 +39,28 @@
     </section>
 
     <section>
-        <h2>Conversion Funnel</h2>
-        <img src="assets/images/23_conversion_funnel.png" alt="Conversion funnel chart showing drop-off at each booking stage">
-        <p>Web conversion (about 24%) trailed iOS (about 30%) and Android (about 28.8%), pointing to the Web booking journey for review.</p>
-    </section>
-
-    <section>
-        <h2>Retention by Cohort</h2>
-        <img src="assets/images/21_cohort_retention_heatmap.png" alt="Cohort retention heatmap showing D1, D7 and D30 retention by signup month">
-        <p>Referral users converted best (about 40%) versus Paid Search (about 23.5%). Feature adoption was linked to longer engagement, but the relationship is observational, not causal.</p>
-    </section>
-
-    <section>
-        <h2>A/B Test: Simplified Booking Flow</h2>
-        <img src="assets/images/32_experiment_dashboard.png" alt="A/B test dashboard comparing conversion rate between control and simplified booking flow">
-        <p>The simplified booking flow lifted conversion from 26.9% to 30.5% (+3.6 percentage points), evaluated with significance testing and 95% confidence intervals.</p>
-    </section>
-
-    <section>
-        <h2>Executive Summary</h2>
-        <img src="assets/images/33_executive_kpi_tiles.png" alt="Executive KPI dashboard tiles summarizing key metrics">
+        <h2>Charts &amp; Results</h2>
+        <div class="chart-grid">
+            <figure>
+                <img src="assets/images/23_conversion_funnel.png" alt="Conversion funnel chart showing drop-off at each booking stage" onclick="openImage(this)">
+                <figcaption>Web conversion (about 24%) trailed iOS (about 30%) and Android (about 28.8%), pointing to the Web booking journey for review.</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/images/21_cohort_retention_heatmap.png" alt="Cohort retention heatmap showing D1, D7 and D30 retention by signup month" onclick="openImage(this)">
+                <figcaption>Referral users converted best (about 40%) versus Paid Search (about 23.5%).</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/images/32_experiment_dashboard.png" alt="A/B test dashboard comparing conversion rate between control and simplified booking flow" onclick="openImage(this)">
+                <figcaption>The simplified booking flow lifted conversion from 26.9% to 30.5% (+3.6 percentage points).</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/images/33_executive_kpi_tiles.png" alt="Executive KPI dashboard tiles summarizing key metrics" onclick="openImage(this)">
+                <figcaption>Executive summary of key metrics.</figcaption>
+            </figure>
+        </div>
+        <dialog id="imgDialog">
+            <img id="imgDialogContent" src="" alt="">
+        </dialog>
     </section>
 
     <section>
