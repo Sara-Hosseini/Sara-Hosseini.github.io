@@ -69,7 +69,7 @@
     <p><strong>Problem:</strong> Most stock forecasting models output a single number and say nothing about uncertainty. This project forecasts a range (10th, 50th and 90th percentile of future returns) for AAPL, MSFT and NVDA at horizons from 1 to 10 trading days.</p>
     <p><strong>Approach:</strong> A two-layer Quantile LSTM, combined with news sentiment from a FinBERT model fine-tuned with LoRA. Evaluated with five-fold walk-forward validation and compared against an XGBoost quantile regression baseline.</p>
     <p><strong>Data:</strong> Daily prices from Yahoo Finance (January 2015 to April 2026, 2,844 trading days per stock), about 1,200 to 1,350 news articles per stock from Alpha Vantage, GDELT and Yahoo Finance News, and the Financial PhraseBank dataset for the sentiment model.</p>
-    <p><strong>Tools:</strong> Python, TensorFlow, XGBoost, FinBERT, LoRA, yfinance</p>
+    <p><strong>Tools:</strong> Python, TensorFlow/Keras, PyTorch, Hugging Face Transformers, PEFT (LoRA), XGBoost, scikit-learn, Pandas, NumPy, yfinance</p>
     <p><strong>Results:</strong></p>
     <ul>
         <li>Prediction intervals were close to their 80% target at 1 day (78.8% to 83.0% coverage), versus 70.1% for the XGBoost baseline.</li>
