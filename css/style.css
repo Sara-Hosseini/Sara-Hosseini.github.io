@@ -467,3 +467,5 @@ footer p { margin: 0; }
 @media (max-width: 600px) { .skill-cards { grid-template-columns: 1fr; } }
 section[id] { scroll-margin-top: 64px; }
 .skill-card .card-links { margin: 0; flex-grow: 0; }
+nav a { display: inline-block; padding: 6px 2px; }
+@media (max-width: 600px) { nav a { padding: 10px 4px; } nav ul { gap: 0 12px; padding: 6px 8px; } }
