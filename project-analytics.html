@@ -44,7 +44,7 @@
         </ol>
 
         <h2>Data &amp; Workflow</h2>
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0">
             <table>
                 <thead><tr><th>Step</th><th>What</th><th>Tools</th></tr></thead>
                 <tbody>
@@ -95,7 +95,7 @@
     <section id="experiment">
         <h2>A/B Test: Simplified Booking Flow</h2>
         <p>Users were split into control (current flow) and treatment (simplified flow). Conversion is the share of users with at least one completed booking. Rates are shown to two decimals so the difference adds up exactly.</p>
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0">
             <table>
                 <thead><tr><th>Metric</th><th>Control</th><th>Treatment</th><th>Difference</th></tr></thead>
                 <tbody>
@@ -114,7 +114,7 @@
     <section id="sql">
         <h2>SQL Example: Funnel Drop-off with Window Functions</h2>
         <p>An excerpt from <code>sql/04_funnel_analysis.sql</code>. It counts distinct users per stage, then uses <code>LAG</code> and <code>FIRST_VALUE</code> to calculate stage-to-stage conversion and drop-off.</p>
-<pre class="sql"><code>WITH funnel_counts AS (
+<pre class="sql" tabindex="0"><code>WITH funnel_counts AS (
     SELECT 'signup' AS stage, 1 AS stage_order, COUNT(*) AS users_reached FROM users
     UNION ALL
     SELECT 'search_started', 2, COUNT(DISTINCT user_id) FROM events WHERE event_name = 'search_started'
@@ -134,7 +134,7 @@ SELECT stage, users_reached,
        ROUND(100.0 * (prev_stage_users - users_reached) / prev_stage_users, 1) AS drop_off_pct
 FROM funnel_with_lag
 ORDER BY stage_order;</code></pre>
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0">
             <table>
                 <thead><tr><th>Stage</th><th>Users</th><th>% of signups</th><th>Drop-off vs previous</th></tr></thead>
                 <tbody>
@@ -151,7 +151,7 @@ ORDER BY stage_order;</code></pre>
         <h2>Power BI Report</h2>
         <p>Six report pages on the same data model, with 27 DAX measures used across 56 visuals. Open the <a href="https://github.com/Sara-Hosseini/product-analytics-case-study/tree/main/dashboard" target="_blank" rel="noopener noreferrer"><code>.pbix</code> file on GitHub</a> in Power BI Desktop.</p>
         <!-- POWER BI SCREENSHOTS: add assets/images/powerbi-01-executive-overview.png ... -06-...png here in a .chart-grid -->
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0">
             <table>
                 <thead><tr><th>Page</th><th>What it shows</th><th>Key DAX measures</th></tr></thead>
                 <tbody>

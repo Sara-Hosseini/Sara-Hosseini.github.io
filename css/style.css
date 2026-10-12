@@ -465,3 +465,5 @@ footer p { margin: 0; }
 .experience li strong { color: var(--color-dark); }
 @media (max-width: 900px) { .skill-cards { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .skill-cards { grid-template-columns: 1fr; } }
+section[id] { scroll-margin-top: 64px; }
+.skill-card .card-links { margin: 0; flex-grow: 0; }
