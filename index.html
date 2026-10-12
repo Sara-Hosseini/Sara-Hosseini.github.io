@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sara Hosseini | Business & Data Analyst</title>
-    <link rel="stylesheet" href="css/style.css">   
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -30,145 +30,151 @@
     <section id="about">
         <h2>About Me</h2>
         <p>I'm a Business & Data Analyst with nearly 7 years of experience analysing business data, building KPI reports and dashboards, and supporting operational and commercial decisions on large construction and infrastructure projects.</p>
-        <p>I recently completed an MSc in Artificial Intelligence in Berlin, which added machine learning, statistical modelling and forecasting to my toolkit. I'm looking for Data Analyst and Business Analyst roles where I can turn data into decisions.</p>
+        <p>I recently completed an MSc in Artificial Intelligence in Berlin, which added machine learning, statistical modelling and forecasting to my toolkit. I'm looking for Data Analyst and Business Analyst roles, and junior Data Science / ML roles, where I can turn data into decisions.</p>
     </section>
 
     <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-group">
-        <h3>Data Analytics & BI</h3>
-        <ul>
-            <li>SQL</li>
-            <li>Python (Pandas, NumPy)</li>
-            <li>Excel</li>
-            <li>Power BI</li>
-            <li>Statistical Analysis</li>
-            <li>Data Cleaning & Validation</li>
-            <li>KPI Reporting & Dashboards</li>
-        </ul>
-    </div>
-    <div class="skills-group">
-        <h3>Business & AI</h3>
-        <ul>
-            <li>Requirements Gathering</li>
-            <li>Stakeholder Collaboration</li>
-            <li>Process Analysis</li>
-            <li>Machine Learning</li>
-            <li>Time-Series Forecasting</li>
-            <li>Financial NLP</li>
-        </ul>
-    </div>
-</section>
+        <h2>Skills</h2>
+        <div class="skills-group">
+            <h3>Data Analytics & BI</h3>
+            <ul>
+                <li>SQL</li>
+                <li>Python (Pandas, NumPy)</li>
+                <li>Excel</li>
+                <li>Power BI</li>
+                <li>Statistical Analysis</li>
+                <li>Data Cleaning & Validation</li>
+                <li>KPI Reporting & Dashboards</li>
+            </ul>
+        </div>
+        <div class="skills-group">
+            <h3>Business & AI</h3>
+            <ul>
+                <li>Requirements Gathering</li>
+                <li>Stakeholder Collaboration</li>
+                <li>Process Analysis</li>
+                <li>Machine Learning</li>
+                <li>Time-Series Forecasting</li>
+                <li>Financial NLP</li>
+            </ul>
+        </div>
+    </section>
 
     <section id="projects">
         <h2>Projects</h2>
-        
-        <article class="project">
-    <h3>Probabilistic Stock Price Forecasting</h3>
-    <p><em>M.Sc. thesis, IU International University of Applied Sciences: "A Hybrid Deep Learning Framework for Stock Price Prediction Integrating Quantile Regression and Sentiment Analysis"</em></p>
-    <p><strong>Problem:</strong> Most stock forecasting models output a single number and say nothing about uncertainty. This project forecasts a range (10th, 50th and 90th percentile of future returns) for AAPL, MSFT and NVDA at horizons from 1 to 10 trading days.</p>
-    <p><strong>Approach:</strong> A two-layer Quantile LSTM, combined with news sentiment from a FinBERT model fine-tuned with LoRA. Evaluated with five-fold walk-forward validation and compared against an XGBoost quantile regression baseline.</p>
-    <p><strong>Data:</strong> Daily prices from Yahoo Finance (January 2015 to April 2026, 2,844 trading days per stock), about 1,200 to 1,350 news articles per stock from Alpha Vantage, GDELT and Yahoo Finance News, and the Financial PhraseBank dataset for the sentiment model.</p>
-    <p><strong>Tools:</strong> Python, TensorFlow/Keras, PyTorch, Hugging Face Transformers, PEFT (LoRA), XGBoost, scikit-learn, Pandas, NumPy, yfinance</p>
-    <p><strong>Results:</strong></p>
-    <ul>
-        <li>Prediction intervals were close to their 80% target at 1 day (78.8% to 83.0% coverage), versus 70.1% for the XGBoost baseline.</li>
-        <li>At 10 days, coverage ranged from 70.9% (NVDA) to 80.1% (AAPL), versus 65.1% for the baseline.</li>
-        <li>Fine-tuning FinBERT with LoRA raised macro F1 from 0.31 (zero-shot) to 0.80.</li>
-        <li>Sentiment did not consistently reduce price error, but on news event days directional accuracy for AAPL at 10 days reached 72.2% (58.2% overall).</li>
-        <li>Price error was comparable to a naive random-walk baseline, as expected for large-cap stocks.</li>
-    </ul>
-    <p><strong>Relevance:</strong> An end-to-end analytics workflow: collecting and cleaning data from several sources, feature engineering, honest validation, and communicating uncertainty instead of a single number.</p>
-    <p><a class="btn" href="https://github.com/Sara-Hosseini/financial-time-series-forecasting" target="_blank" rel="noopener noreferrer">View the project on GitHub</a></p>
-</article>
 
         <article class="project">
-    <h3>Product Analytics: Retention, Funnel and A/B Testing</h3>
-    <p><em>Portfolio project on a simulated European mobility platform (synthetic data)</em></p>
-    <p><strong>Problem:</strong> Where do users drop out of the booking funnel, which acquisition channels bring the best users, and does a simplified booking flow improve conversion?</p>
-    <p><strong>Approach:</strong> SQL analysis on a SQLite database, six Python notebooks covering funnel, D1/D7/D30 retention, cohorts and segmentation, an A/B test evaluated with significance testing and 95% confidence intervals, and a multi-page Power BI dashboard.</p>
-    <p><strong>Data:</strong> Synthetic dataset generated for this project: 5,000 users, 141,813 events and 2,731 completed bookings (January 2024 to June 2025), checked with 23 validation checks and 25 automated tests.</p>
-    <p><strong>Tools:</strong> Python, SQL, SQLite, Pandas, NumPy, SciPy, Matplotlib, Seaborn, Power BI, Pytest, Git</p>
-    <p><strong>Results</strong> (on synthetic data, so they demonstrate the method rather than real business outcomes):</p>
-    <ul>
-        <li>Referral users converted best (about 40%) versus Paid Search (about 23.5%).</li>
-        <li>Web conversion (about 24%) trailed iOS (about 30%) and Android (about 28.8%), pointing to the Web booking journey for review.</li>
-        <li>The simplified booking flow lifted conversion from 26.9% to 30.5% (+3.6 percentage points).</li>
-        <li>Feature adoption was linked to longer engagement, but the relationship is observational, not causal.</li>
-    </ul>
-    <p><strong>Relevance:</strong> The full analyst workflow in one project: framing business questions, SQL, exploratory analysis, statistical testing, dashboarding and recommendations.</p>
-    <p><a class="btn" href="https://github.com/Sara-Hosseini/product-analytics-case-study" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
-    <p><a class="btn" href="project-analytics.html" target="_blank" rel="noopener noreferrer">View Full Case Study</a></p>
-</article>
+            <h3>Product Analytics: Retention, Funnel and A/B Testing</h3>
+            <p><em>Portfolio project on a simulated European mobility platform (synthetic data)</em></p>
+            <p><strong>Problem:</strong> Where do users drop out of the booking funnel, which acquisition channels bring the best users, and does a simplified booking flow improve conversion?</p>
+            <p><strong>Approach:</strong> SQL analysis on a SQLite database, six Python notebooks covering funnel, D1/D7/D30 retention, cohorts and segmentation, an A/B test evaluated with significance testing and 95% confidence intervals, and a six-page Power BI dashboard.</p>
+            <p><strong>Data:</strong> Synthetic dataset generated for this project: 5,000 users, 141,813 events and 2,731 completed bookings (January 2024 to June 2025), checked with 23 validation checks and 25 automated tests.</p>
+            <p><strong>Tools:</strong> Python, SQL, SQLite, Pandas, NumPy, SciPy, Matplotlib, Seaborn, Power BI, Pytest, Git</p>
+            <p><strong>Results</strong> (on synthetic data, so they demonstrate the method rather than real business outcomes):</p>
+            <ul>
+                <li>Referral users converted best (about 40%) versus Paid Search (about 23.5%).</li>
+                <li>Web conversion (about 24%) trailed iOS (about 30%) and Android (about 28.8%), pointing to the Web booking journey for review.</li>
+                <li>The simplified booking flow lifted conversion from 26.9% to 30.5% (+3.6 percentage points).</li>
+                <li>Feature adoption was linked to longer engagement, but the relationship is observational, not causal.</li>
+            </ul>
+            <p><strong>Relevance:</strong> The full analyst workflow in one project: framing business questions, SQL, exploratory analysis, statistical testing, dashboarding and recommendations.</p>
+            <div class="btn-group">
+                <a class="btn" href="project-analytics.html" target="_blank" rel="noopener noreferrer">View Detailed Results</a>
+                <a class="btn" href="https://github.com/Sara-Hosseini/product-analytics-case-study" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            </div>
+        </article>
+
+        <article class="project">
+            <h3>Probabilistic Stock Price Forecasting</h3>
+            <p><em>M.Sc. thesis, IU International University of Applied Sciences: "A Hybrid Deep Learning Framework for Stock Price Prediction Integrating Quantile Regression and Sentiment Analysis"</em></p>
+            <p><strong>Problem:</strong> Most stock forecasting models output a single number and say nothing about uncertainty. This project forecasts a range (10th, 50th and 90th percentile of future returns) for AAPL, MSFT and NVDA at horizons from 1 to 10 trading days.</p>
+            <p><strong>Approach:</strong> A two-layer Quantile LSTM, combined with news sentiment from a FinBERT model fine-tuned with LoRA. Evaluated with five-fold walk-forward validation and compared against an XGBoost quantile regression baseline.</p>
+            <p><strong>Data:</strong> Daily prices from Yahoo Finance (January 2015 to April 2026, 2,844 trading days per stock), about 1,200 to 1,350 news articles per stock from Alpha Vantage, GDELT and Yahoo Finance News, and the Financial PhraseBank dataset for the sentiment model.</p>
+            <p><strong>Tools:</strong> Python, TensorFlow/Keras, PyTorch, Hugging Face Transformers, PEFT (LoRA), XGBoost, scikit-learn, Pandas, NumPy, yfinance</p>
+            <p><strong>Results:</strong></p>
+            <ul>
+                <li>Prediction intervals were close to their 80% target at 1 day (78.8% to 83.0% coverage), versus 70.1% for the XGBoost baseline.</li>
+                <li>At 10 days, coverage ranged from 70.9% (NVDA) to 80.1% (AAPL), versus 65.1% for the baseline.</li>
+                <li>Fine-tuning FinBERT with LoRA raised macro F1 from 0.31 (zero-shot) to 0.80.</li>
+                <li>Sentiment did not consistently reduce price error, but on news event days directional accuracy for AAPL at 10 days reached 72.2% (58.2% overall).</li>
+                <li>Price error was comparable to a naive random-walk baseline, as expected for large-cap stocks.</li>
+            </ul>
+            <p><strong>Relevance:</strong> An end-to-end analytics workflow: collecting and cleaning data from several sources, feature engineering, honest validation, and communicating uncertainty instead of a single number.</p>
+            <div class="btn-group">
+                <a class="btn" href="project-thesis.html" target="_blank" rel="noopener noreferrer">View Detailed Results</a>
+                <a class="btn" href="https://github.com/Sara-Hosseini/financial-time-series-forecasting" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            </div>
+        </article>
     </section>
 
-
     <section id="Experience">
-    <h2>Experience</h2>
-    <article class="experience">
-    <h3>Data & Reporting Analyst</h3>
-    <p><em>Baroj, Iran — Oct 2020 to Jul 2024</em></p>
-    <ul>
-        <li>Tracked cost, schedule, procurement and progress data across concurrent construction and infrastructure projects, consolidating it into recurring KPI and management reports.</li>
-        <li>Investigated discrepancies across reporting sources, traced them back to source data, and applied validation checks before figures were used in management reporting.</li>
-        <li>Used Excel and Python for data preparation and consistency checks, and coordinated with project managers, engineers, finance and procurement to align reporting definitions across teams.</li>
-    </ul>
-</article>
+        <h2>Experience</h2>
+        <article class="experience">
+            <h3>Data & Reporting Analyst</h3>
+            <p><em>Baroj, Iran — Oct 2020 to Jul 2024</em></p>
+            <ul>
+                <li>Tracked cost, schedule, procurement and progress data across concurrent construction and infrastructure projects, consolidating it into recurring KPI and management reports.</li>
+                <li>Investigated discrepancies across reporting sources, traced them back to source data, and applied validation checks before figures were used in management reporting.</li>
+                <li>Used Excel and Python for data preparation and consistency checks, and coordinated with project managers, engineers, finance and procurement to align reporting definitions across teams.</li>
+            </ul>
+        </article>
 
-<article class="experience">
-    <h3>Junior Data & Reporting Analyst</h3>
-    <p><em>Abad Boom Pars Co., Iran — Oct 2017 to Sep 2020</em></p>
-    <ul>
-        <li>Collected, organised and validated cost, schedule and progress data for recurring reporting on ongoing construction projects.</li>
-        <li>Prepared Excel-based KPI summaries and progress reports for project managers, following established templates.</li>
-        <li>Worked with engineering and project teams to verify reporting accuracy and resolve data discrepancies.</li>
-    </ul>
-</article>
-</section>
+        <article class="experience">
+            <h3>Junior Data & Reporting Analyst</h3>
+            <p><em>Abad Boom Pars Co., Iran — Oct 2017 to Sep 2020</em></p>
+            <ul>
+                <li>Collected, organised and validated cost, schedule and progress data for recurring reporting on ongoing construction projects.</li>
+                <li>Prepared Excel-based KPI summaries and progress reports for project managers, following established templates.</li>
+                <li>Worked with engineering and project teams to verify reporting accuracy and resolve data discrepancies.</li>
+            </ul>
+        </article>
+    </section>
 
     <section id="Education">
-    <h2>Education</h2>
+        <h2>Education</h2>
 
-    <article class="education">
-        <h3>M.Sc. Artificial Intelligence</h3>
-        <p><em>IU International University of Applied Sciences, Berlin — Oct 2024 to Aug 2026 · Grade 1.8</em></p>
-        <p>Coursework in statistics, machine learning, deep learning, NLP, time-series forecasting and predictive analytics, implemented in Python. Thesis: probabilistic stock price forecasting with a Quantile LSTM and FinBERT sentiment (see Projects).</p>
-    </article>
+        <article class="education">
+            <h3>M.Sc. Artificial Intelligence</h3>
+            <p><em>IU International University of Applied Sciences, Berlin — Oct 2024 to Aug 2026 · Grade 1.8</em></p>
+            <p>Coursework in statistics, machine learning, deep learning, NLP, time-series forecasting and predictive analytics, implemented in Python. Thesis: probabilistic stock price forecasting with a Quantile LSTM and FinBERT sentiment (see Projects).</p>
+        </article>
 
-    <article class="education">
-        <h3>Master's degree, Business Administration (International Business)</h3>
-        <p><em>Alghadir Institute of Higher Education — Sep 2009 to Jul 2011</em></p>
-        <p>Recognised in Germany by ZAB as a Master's-level degree. Thesis on the institutionalisation of e-banking services in banks; designed, distributed and analysed a research questionnaire using SPSS.</p>
-    </article>
+        <article class="education">
+            <h3>Master's degree, Business Administration (International Business)</h3>
+            <p><em>Alghadir Institute of Higher Education — Sep 2009 to Jul 2011</em></p>
+            <p>Recognised in Germany by ZAB as a Master's-level degree. Thesis on the institutionalisation of e-banking services in banks; designed, distributed and analysed a research questionnaire using SPSS.</p>
+        </article>
 
-    <article class="education">
-        <h3>B.Sc. Physics</h3>
-        <p><em>Urmia University — Feb 2003 to Oct 2007</em></p>
-        <p>Foundational coursework in quantitative analysis, mathematics and scientific research methods.</p>
-    </article>
-</section>
+        <article class="education">
+            <h3>B.Sc. Physics</h3>
+            <p><em>Urmia University — Feb 2003 to Oct 2007</em></p>
+            <p>Foundational coursework in quantitative analysis, mathematics and scientific research methods.</p>
+        </article>
+    </section>
+
     <section id="contact">
-    <h2>Contact</h2>
-    <p>I'm open to Data Analyst and Business Analyst roles. The quickest way to reach me is the form below, LinkedIn or GitHub.</p>
+        <h2>Contact</h2>
+        <p>I'm open to Data Analyst, Business Analyst and junior Data Science / ML roles. The quickest way to reach me is the form below, LinkedIn or GitHub.</p>
 
-    <div class="btn-group">
-        <a class="btn" href="https://www.linkedin.com/in/sara-hosseini-analyst/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="btn" href="https://github.com/Sara-Hosseini" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </div>
+        <div class="btn-group">
+            <a class="btn" href="https://www.linkedin.com/in/sara-hosseini-analyst/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn" href="https://github.com/Sara-Hosseini" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
 
-    <form action="https://formspree.io/f/maeqbkwn" method="POST">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <form action="https://formspree.io/f/maeqbkwn" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
 
-        <input type="submit" value="Send message">
-    </form>
-</section>
+            <input type="submit" value="Send message">
+        </form>
+    </section>
+
     <script src="js/main.js"></script>
 </body>
 </html>
