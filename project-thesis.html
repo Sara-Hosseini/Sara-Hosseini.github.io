@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thesis Results | Sara Hosseini</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h1>Probabilistic Stock Price Forecasting</h1>
+        <p>M.Sc. thesis results: Quantile LSTM, FinBERT sentiment, walk-forward validation</p>
+    </section>
+
+    <section>
+        <p><em>"A Hybrid Deep Learning Framework for Stock Price Prediction Integrating Quantile Regression and Sentiment Analysis", IU International University of Applied Sciences</em></p>
+
+        <h2>Summary</h2>
+        <ul class="bullets">
+            <li>The model forecasts a range (10th, 50th and 90th percentile) instead of a single price. The 80% interval was close to its target at 1 day, with 78.8% to 83.0% coverage.</li>
+            <li>Price error was about the same as a naive "tomorrow equals today" forecast, which is expected for large-cap stocks. The value of the model is the calibrated interval and the directional signal, not a lower price error.</li>
+            <li>Sentiment from news changed the forecasts, but did not consistently reduce error. It helped most at 10 days and on days with news events.</li>
+            <li>The 2022 rate-rise year was the hardest test: directional accuracy fell below 50% for all three stocks.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Setup</h2>
+        <p>Three stocks with different volatility (AAPL, MSFT, NVDA), 2,844 daily observations each (January 2015 to April 2026). Five-fold walk-forward validation with an expanding training window, tested on 2021 to 2025, so every result is out-of-sample. Horizons: 1, 5 and 10 trading days.</p>
+    </section>
+
+    <section>
+        <h2>Results by Stock and Horizon</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Stock</th><th>Horizon</th><th>MAPE (%)</th><th>Coverage (%)</th><th>Directional accuracy (%)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>MSFT</td><td>1 day</td><td>1.19</td><td>81.4</td><td>50.2</td></tr>
+                    <tr><td>AAPL</td><td>1 day</td><td>1.25</td><td>83.0</td><td>50.5</td></tr>
+                    <tr><td>NVDA</td><td>1 day</td><td>2.42</td><td>78.8</td><td>53.5</td></tr>
+                    <tr><td>MSFT</td><td>5 days</td><td>2.65</td><td>73.5</td><td>55.8</td></tr>
+                    <tr><td>AAPL</td><td>5 days</td><td>3.07</td><td>76.6</td><td>50.9</td></tr>
+                    <tr><td>NVDA</td><td>5 days</td><td>5.54</td><td>72.6</td><td>56.7</td></tr>
+                    <tr><td>MSFT</td><td>10 days</td><td>3.69</td><td>76.3</td><td>58.2</td></tr>
+                    <tr><td>AAPL</td><td>10 days</td><td>4.33</td><td>80.1</td><td>58.4</td></tr>
+                    <tr><td>NVDA</td><td>10 days</td><td>8.14</td><td>70.9</td><td>59.1</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="note">MAPE is the error of the median forecast. Coverage is how often the real price fell inside the 10th to 90th percentile interval (target: 80%). Directional accuracy: 50% is a coin flip. Source: thesis Table 4-1.</p>
+        <p>Error grows with volatility (MSFT lowest, NVDA highest), while directional accuracy goes the other way and rises with the horizon. At 10 days, NVDA (70.9%) and MSFT (76.3%) fall short of the 80% target, so longer-horizon intervals should be read stock by stock.</p>
+    </section>
+
+    <section>
+        <h2>Comparison with Baselines</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Model</th><th>Horizon</th><th>Avg MAPE (%)</th><th>Avg coverage (%)</th><th>Avg directional accuracy (%)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Price-only LSTM</td><td>1 day</td><td>1.62</td><td>79.4</td><td>51.7</td></tr>
+                    <tr><td>LSTM + sentiment</td><td>1 day</td><td>1.62</td><td>81.1</td><td>51.4</td></tr>
+                    <tr><td>XGBoost baseline</td><td>1 day</td><td>1.65</td><td>70.1</td><td>51.2</td></tr>
+                    <tr><td>Price-only LSTM</td><td>5 days</td><td>3.72</td><td>77.3</td><td>55.8</td></tr>
+                    <tr><td>LSTM + sentiment</td><td>5 days</td><td>3.75</td><td>74.2</td><td>54.5</td></tr>
+                    <tr><td>XGBoost baseline</td><td>5 days</td><td>3.80</td><td>66.0</td><td>53.8</td></tr>
+                    <tr><td>Price-only LSTM</td><td>10 days</td><td>5.40</td><td>74.6</td><td>55.3</td></tr>
+                    <tr><td>LSTM + sentiment</td><td>10 days</td><td>5.39</td><td>75.8</td><td>58.6</td></tr>
+                    <tr><td>XGBoost baseline</td><td>10 days</td><td>5.52</td><td>65.1</td><td>53.4</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="note">Averages across the three stocks. Source: thesis Table 4-9.</p>
+        <p>The XGBoost quantile baseline, trained on the same features, covered the real price only 70.1% of the time at 1 day, so the sequential LSTM gives noticeably better calibrated intervals. Against the naive random-walk forecast, price error was within about 0.1 percentage points in every case (thesis Table 4-8).</p>
+    </section>
+
+    <section>
+        <h2>Where Sentiment Helps</h2>
+        <p>Across all days, adding sentiment did not reduce price error. Splitting AAPL's 10-day forecasts by market condition shows the effect is conditional:</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>AAPL, 10-day horizon</th><th>MAPE (%)</th><th>Directional accuracy (%)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>All days</td><td>4.24</td><td>58.2</td></tr>
+                    <tr><td>Days with news</td><td>3.74</td><td>62.7</td></tr>
+                    <tr><td>Days without news</td><td>4.40</td><td>56.9</td></tr>
+                    <tr><td>High-sentiment days</td><td>3.90</td><td>61.2</td></tr>
+                    <tr><td>Event days</td><td>4.66</td><td>72.2</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="note">Source: thesis Table 4-12. Event days are a small subset, so the 72.2% figure is indicative, not a guarantee.</p>
+        <p>Paired t-tests showed sentiment shifted the median forecast significantly in six of nine stock-horizon combinations (p &lt; 0.05).</p>
+    </section>
+
+    <section>
+        <h2>Sentiment Model (FinBERT + LoRA)</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Method</th><th>Accuracy</th><th>Macro F1</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>FinBERT, zero-shot</td><td>0.507</td><td>0.314</td></tr>
+                    <tr><td>FinBERT + LoRA fine-tuning</td><td>0.848</td><td>0.801</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="note">Held-out subset of 501 Financial PhraseBank sentences. Source: thesis Table 3-2.</p>
+        <p>The biggest gain was on negative sentiment, the class that matters most for downside risk: F1 rose from 0.06 to 0.71.</p>
+    </section>
+
+    <section>
+        <h2>Limitations</h2>
+        <ul class="bullets">
+            <li><strong>Regime change:</strong> in the 2022 test year, directional accuracy fell below 50% for all three stocks (45.4%, 47.4%, 48.2%). The model had never seen a rising-rate period, and it recovered once 2022 entered the training data.</li>
+            <li><strong>News coverage:</strong> only about 24% to 27% of trading days had any news, which dilutes the average effect of sentiment.</li>
+            <li><strong>Interval calibration:</strong> at 10 days, coverage fell short of 80% for NVDA and MSFT.</li>
+            <li><strong>Scope:</strong> three large-cap US technology stocks, no macroeconomic inputs, and no formal backtest with trading costs. The results describe statistical forecasting performance, not trading profit.</li>
+            <li><strong>Sentiment validation:</strong> the sentiment model was validated on Financial PhraseBank, not on a labelled sample of the actual news articles used.</li>
+        </ul>
+    </section>
+
+    <section>
+        <div class="btn-group">
+            <a class="btn" href="index.html#projects">Back to Projects</a>
+            <a class="btn" href="https://github.com/Sara-Hosseini/financial-time-series-forecasting" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
