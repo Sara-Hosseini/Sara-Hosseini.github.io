@@ -3,71 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Analytics Case Study | Sara Hosseini</title>
-    <link rel="stylesheet" href="css/style.css?v=2">
+    <title>Product Analytics Case Study (SQL, Python, Power BI) | Sara Hosseini</title>
+    <meta name="description" content="End-to-end product analytics case study by Sara Hosseini: SQL funnel and cohort analysis, Python EDA, A/B testing with confidence intervals and a six-page Power BI dashboard.">
+    <link rel="canonical" href="https://sara-hosseini.github.io/project-analytics.html">
+    <meta property="og:title" content="Product Analytics Case Study | Sara Hosseini">
+    <meta property="og:description" content="Funnel, retention, cohort and A/B test analysis in SQL, Python and Power BI.">
+    <meta property="og:image" content="https://sara-hosseini.github.io/assets/images/23_conversion_funnel.png">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23003135'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='16' font-weight='bold' fill='%230fa4af' text-anchor='middle'%3ESH%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header>
-        <nav>
+        <nav aria-label="Main">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="project-thesis.html">Thesis</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <main id="main">
     <section id="hero">
         <h1>Product Analytics Case Study</h1>
-        <p>Retention, Funnel and A/B Testing</p>
+        <p class="hero-title">Funnel · Retention · A/B Testing in SQL, Python &amp; Power BI</p>
     </section>
 
     <section>
-        <p><em>Portfolio project on a simulated European mobility platform (synthetic data)</em></p>
+        <p class="note">Portfolio project on a simulated European mobility app. I generated the data for this project (fixed random seed, no personal data), so the results show the analytical method, not real business outcomes.</p>
 
-        <h2>Problem</h2>
-        <p>Where do users drop out of the booking funnel, which acquisition channels bring the best users, and does a simplified booking flow improve conversion?</p>
+        <h2>Business Questions</h2>
+        <ol class="bullets">
+            <li>Where in the journey do users drop out before booking?</li>
+            <li>Which acquisition channels and platforms bring valuable users?</li>
+            <li>How well do monthly signup cohorts retain, and which behaviours go with retention?</li>
+            <li>Did the simplified booking flow improve conversion enough to roll out?</li>
+        </ol>
 
-        <h2>Approach</h2>
-        <p>SQL analysis on a SQLite database, six Python notebooks covering funnel, D1/D7/D30 retention, cohorts and segmentation, an A/B test evaluated with significance testing and 95% confidence intervals, and a six-page Power BI dashboard.</p>
-
-        <h2>Data</h2>
-        <p>Synthetic dataset generated for this project: 5,000 users, 141,813 events and 2,731 completed bookings (January 2024 to June 2025), checked with 23 validation checks and 25 automated tests.</p>
-
-        <h2>Tools</h2>
-        <p>Python, SQL, SQLite, Pandas, NumPy, SciPy, Matplotlib, Seaborn, Power BI, Pytest, Git</p>
+        <h2>Data &amp; Workflow</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Step</th><th>What</th><th>Tools</th></tr></thead>
+                <tbody>
+                    <tr><td>1. Data</td><td>5,000 users, 141,813 events, 2,731 bookings (Jan 2024 to Jun 2025)</td><td>Python (generator)</td></tr>
+                    <tr><td>2. Quality</td><td>23 validation checks (keys, orphans, funnel logic, revenue rules) and 25 automated tests</td><td>pandas, pytest</td></tr>
+                    <tr><td>3. Analysis</td><td>10 SQL scripts: KPIs, funnel, retention, cohorts, feature adoption, segmentation, A/B test, recommendations</td><td>SQL (SQLite)</td></tr>
+                    <tr><td>4. Deep dive</td><td>6 notebooks: EDA, retention curves, funnel by segment, z-test and Welch t-test with 95% CIs</td><td>pandas, SciPy, Seaborn</td></tr>
+                    <tr><td>5. Reporting</td><td>6-page Power BI report with about 30 DAX measures (retention %, ARPU uplift, funnel rates)</td><td>Power BI, DAX</td></tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <section>
-        <h2>Charts &amp; Results</h2>
+        <h2>Findings &amp; Charts</h2>
+        <p class="note">Select a chart to enlarge it.</p>
         <div class="chart-grid">
             <figure>
-                <img src="assets/images/23_conversion_funnel.png" alt="Conversion funnel chart showing drop-off at each booking stage" onclick="openImage(this)">
-                <figcaption>Web conversion (about 24%) trailed iOS (about 30%) and Android (about 28.8%), pointing to the Web booking journey for review.</figcaption>
+                <button class="img-button" type="button" aria-label="Enlarge conversion funnel chart">
+                    <img src="assets/images/23_conversion_funnel.png" alt="Conversion funnel: 5,000 signups, 3,460 searched, 1,657 started a booking, 1,434 completed a booking" loading="lazy" width="1410" height="808">
+                </button>
+                <figcaption><strong>Funnel.</strong> 52.1% of searchers never start a booking, but 86.5% of started bookings complete. The opportunity is in search and comparison, not checkout.</figcaption>
             </figure>
             <figure>
-                <img src="assets/images/21_cohort_retention_heatmap.png" alt="Cohort retention heatmap showing D1, D7 and D30 retention by signup month" onclick="openImage(this)">
-                <figcaption>Referral users converted best (about 40%) versus Paid Search (about 23.5%).</figcaption>
+                <button class="img-button" type="button" aria-label="Enlarge funnel by acquisition channel chart">
+                    <img src="assets/images/27_funnel_by_channel.png" alt="Funnel conversion by acquisition channel; Referral highest at 40 percent booking completion, Paid Social lowest at about 21 percent" loading="lazy" width="1634" height="883">
+                </button>
+                <figcaption><strong>Channel quality.</strong> Referral users completed a booking at 40.0%, against 23.5% for Paid Search and 21.0% for Paid Social, despite the paid channels' higher volume.</figcaption>
             </figure>
             <figure>
-                <img src="assets/images/32_experiment_dashboard.png" alt="A/B test dashboard comparing conversion rate between control and simplified booking flow" onclick="openImage(this)">
-                <figcaption>The simplified booking flow lifted conversion from 26.9% to 30.5% (+3.6 percentage points).</figcaption>
+                <button class="img-button" type="button" aria-label="Enlarge cohort retention heatmap">
+                    <img src="assets/images/21_cohort_retention_heatmap.png" alt="Monthly cohort retention heatmap; around 50 to 60 percent of each cohort returns in month 1, falling to about 25 percent by month 5" loading="lazy" width="1925" height="1035">
+                </button>
+                <figcaption><strong>Cohorts.</strong> Retention patterns are stable across signup months (about 50 to 60% active in month 1, about 25% by month 5), so the steepest loss happens in the first month after signup.</figcaption>
             </figure>
             <figure>
-                <img src="assets/images/33_executive_kpi_tiles.png" alt="Executive KPI dashboard tiles summarizing key metrics" onclick="openImage(this)">
-                <figcaption>Executive summary of key metrics.</figcaption>
+                <button class="img-button" type="button" aria-label="Enlarge A/B test results chart">
+                    <img src="assets/images/32_experiment_dashboard.png" alt="A/B test: conversion 26.9 percent control versus 30.4 percent treatment, ARPU 7.02 versus 8.80 euros, with 95 percent confidence intervals" loading="lazy" width="2234" height="857">
+                </button>
+                <figcaption><strong>Experiment.</strong> The simplified booking flow lifted conversion from 26.9% to 30.4% (+3.6 pp, z = 2.78, p &lt; 0.01) and ARPU from €7.02 to €8.80.</figcaption>
             </figure>
         </div>
-        <dialog id="imgDialog">
+        <dialog id="imgDialog" aria-label="Enlarged chart">
             <img id="imgDialogContent" src="" alt="">
         </dialog>
     </section>
 
-    <section>
-        <h2>Relevance</h2>
-        <p>The full analyst workflow in one project: framing business questions, SQL, exploratory analysis, statistical testing, dashboarding and recommendations. Results are drawn from a synthetic dataset and demonstrate the method rather than real business outcomes.</p>
-        <p><a class="btn" href="https://github.com/Sara-Hosseini/product-analytics-case-study" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+    <section id="sql">
+        <h2>SQL Example: Funnel Drop-off with Window Functions</h2>
+        <p>An excerpt from <code>sql/04_funnel_analysis.sql</code>. It counts distinct users per stage, then uses <code>LAG</code> and <code>FIRST_VALUE</code> to calculate stage-to-stage conversion and drop-off.</p>
+<pre class="sql"><code>WITH funnel_counts AS (
+    SELECT 'signup' AS stage, 1 AS stage_order, COUNT(*) AS users_reached FROM users
+    UNION ALL
+    SELECT 'search_started', 2, COUNT(DISTINCT user_id) FROM events WHERE event_name = 'search_started'
+    UNION ALL
+    SELECT 'booking_started', 3, COUNT(DISTINCT user_id) FROM events WHERE event_name = 'booking_started'
+    UNION ALL
+    SELECT 'booking_completed', 4, COUNT(DISTINCT user_id) FROM events WHERE event_name = 'booking_completed'
+),
+funnel_with_lag AS (
+    SELECT stage, stage_order, users_reached,
+           LAG(users_reached)         OVER (ORDER BY stage_order) AS prev_stage_users,
+           FIRST_VALUE(users_reached) OVER (ORDER BY stage_order) AS top_of_funnel_users
+    FROM funnel_counts
+)
+SELECT stage, users_reached,
+       ROUND(100.0 * users_reached / top_of_funnel_users, 1) AS pct_of_top,
+       ROUND(100.0 * (prev_stage_users - users_reached) / prev_stage_users, 1) AS drop_off_pct
+FROM funnel_with_lag
+ORDER BY stage_order;</code></pre>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Stage</th><th>Users</th><th>% of signups</th><th>Drop-off vs previous</th></tr></thead>
+                <tbody>
+                    <tr><td>Signup</td><td>5,000</td><td>100.0%</td><td>–</td></tr>
+                    <tr><td>Search started</td><td>3,460</td><td>69.2%</td><td>30.8%</td></tr>
+                    <tr><td>Booking started</td><td>1,657</td><td>33.1%</td><td><strong>52.1%</strong></td></tr>
+                    <tr><td>Booking completed</td><td>1,434</td><td>28.7%</td><td>13.5%</td></tr>
+                </tbody>
+            </table>
+        </div>
     </section>
+
+    <section id="powerbi">
+        <h2>Power BI Report</h2>
+        <p>Six pages built on the same data: <strong>Executive Overview</strong> (KPI cards, trend lines, slicers), <strong>User Behaviour</strong>, <strong>Product Funnel</strong>, <strong>Retention Analysis</strong> (cohort matrix, D1/D7/D30), <strong>Experiment Analysis</strong> (control vs treatment, uplift) and <strong>Executive Recommendations</strong>. The measures are written in DAX, for example <em>Day 7 Retention %</em>, <em>Experiment Uplift pp</em> and <em>ARPU Uplift %</em>.</p>
+        <!-- TODO: add Power BI page screenshots (assets/images/powerbi-*.png) here -->
+        <p>The <code>.pbix</code> file is in the <a href="https://github.com/Sara-Hosseini/product-analytics-case-study/tree/main/dashboard" target="_blank" rel="noopener noreferrer">GitHub repository</a>.</p>
+    </section>
+
+    <section>
+        <h2>Recommendations</h2>
+        <ol class="bullets">
+            <li>Prioritise the search-to-booking step (ride options and comparison) and the Web journey, which converts at 24.0% against 30.0% on iOS.</li>
+            <li>Shift acquisition budget towards Referral and tighten Paid Search targeting. Judge channels on conversion and ARPU, not signups.</li>
+            <li>Roll out the simplified booking flow, and keep monitoring conversion and ARPU after launch.</li>
+            <li>Test engagement prompts (notifications, favourite locations). Their link to retention is observational, so a controlled experiment should confirm it.</li>
+        </ol>
+        <div class="btn-group">
+            <a class="btn" href="https://github.com/Sara-Hosseini/product-analytics-case-study" target="_blank" rel="noopener noreferrer">Code &amp; SQL on GitHub</a>
+            <a class="btn btn-secondary" href="index.html#projects">Back to projects</a>
+        </div>
+    </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Sara Hosseini · Data Analyst, Berlin</p>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>

@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thesis Results | Sara Hosseini</title>
-    <link rel="stylesheet" href="css/style.css?v=2">
+    <title>Probabilistic Forecasting Thesis Results | Sara Hosseini</title>
+    <meta name="description" content="M.Sc. AI thesis by Sara Hosseini: probabilistic stock price forecasting with a Quantile LSTM and FinBERT sentiment, evaluated with walk-forward validation against XGBoost and naive baselines.">
+    <link rel="canonical" href="https://sara-hosseini.github.io/project-thesis.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23003135'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='16' font-weight='bold' fill='%230fa4af' text-anchor='middle'%3ESH%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header>
-        <nav>
+        <nav aria-label="Main">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="project-analytics.html">Product Analytics</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <main id="main">
     <section id="hero">
         <h1>Probabilistic Stock Price Forecasting</h1>
-        <p>M.Sc. thesis results: Quantile LSTM, FinBERT sentiment, walk-forward validation</p>
+        <p class="hero-title">M.Sc. thesis: forecasting with uncertainty, evaluated honestly</p>
     </section>
 
     <section>
@@ -31,6 +38,16 @@
             <li>Price error was about the same as a naive "tomorrow equals today" forecast, which is expected for large-cap stocks. The value of the model is the calibrated interval and the directional signal, not a lower price error.</li>
             <li>Sentiment from news changed the forecasts, but did not consistently reduce error. It helped most at 10 days and on days with news events.</li>
             <li>The 2022 rate-rise year was the hardest test: directional accuracy fell below 50% for all three stocks.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Why It Matters for Analytics Work</h2>
+        <ul class="bullets">
+            <li><strong>Ranges, not single numbers:</strong> the same quantile approach applies to demand, revenue or capacity forecasts, where planners need a realistic low and high case.</li>
+            <li><strong>Baselines first:</strong> every model was compared with a naive forecast and with XGBoost. A model only counts if it beats something simple.</li>
+            <li><strong>No look-ahead bias:</strong> walk-forward validation reflects how a forecast would actually have performed at the time.</li>
+            <li><strong>Messy, multi-source data:</strong> prices and news from Yahoo Finance, Alpha Vantage and GDELT were cleaned, aligned by date and merged in Python.</li>
         </ul>
     </section>
 
@@ -142,6 +159,12 @@
             <a class="btn" href="https://github.com/Sara-Hosseini/financial-time-series-forecasting" target="_blank" rel="noopener noreferrer">View on GitHub</a>
         </div>
     </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Sara Hosseini · Data Analyst, Berlin</p>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
