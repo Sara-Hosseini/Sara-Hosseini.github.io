@@ -448,3 +448,20 @@ footer p { margin: 0; }
 .evidence a { color: var(--color-primary); font-weight: 600; }
 #hero { padding-top: 64px; padding-bottom: 64px; }
 @media (max-width: 600px) { #hero { padding-top: 40px; padding-bottom: 40px; } }
+.lead { font-size: 18px; color: var(--color-muted); margin-bottom: 20px; }
+.skill-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+.skill-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-primary);
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.skill-card h3 { font-size: 19px; }
+.skill-card p { font-size: 15px; flex-grow: 1; }
+.skill-card a { color: var(--color-primary); font-weight: 600; font-size: 15px; }
+.experience li strong { color: var(--color-dark); }
+@media (max-width: 900px) { .skill-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .skill-cards { grid-template-columns: 1fr; } }

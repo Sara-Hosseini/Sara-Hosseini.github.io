@@ -50,9 +50,9 @@
                 <tbody>
                     <tr><td>1. Data</td><td>5,000 users, 141,813 events, 2,731 bookings (Jan 2024 to Jun 2025)</td><td>Python (generator)</td></tr>
                     <tr><td>2. Quality</td><td>23 validation checks (keys, orphans, funnel logic, revenue rules) and 25 automated tests</td><td>pandas, pytest</td></tr>
-                    <tr><td>3. Analysis</td><td>10 SQL scripts: KPIs, funnel, retention, cohorts, feature adoption, segmentation, A/B test, recommendations</td><td>SQL (SQLite)</td></tr>
+                    <tr><td>3. Analysis</td><td>10 SQL analysis scripts plus schema (1,746 lines): KPIs, funnel, retention, cohorts, feature adoption, segmentation, A/B test, recommendations</td><td>SQL (SQLite)</td></tr>
                     <tr><td>4. Deep dive</td><td>6 notebooks: EDA, retention curves, funnel by segment, z-test and Welch t-test with 95% CIs</td><td>pandas, SciPy, Seaborn</td></tr>
-                    <tr><td>5. Reporting</td><td>6-page Power BI report with about 30 DAX measures (retention %, ARPU uplift, funnel rates)</td><td>Power BI, DAX</td></tr>
+                    <tr><td>5. Reporting</td><td>6-page Power BI report with 27 DAX measures (retention %, ARPU uplift, funnel rates)</td><td>Power BI, DAX</td></tr>
                 </tbody>
             </table>
         </div>
@@ -78,18 +78,37 @@
                 <button class="img-button" type="button" aria-label="Enlarge cohort retention heatmap">
                     <img src="assets/images/21_cohort_retention_heatmap.png" alt="Monthly cohort retention heatmap; around 50 to 60 percent of each cohort returns in month 1, falling to about 25 percent by month 5" loading="lazy" width="1925" height="1035">
                 </button>
-                <figcaption><strong>Cohorts.</strong> Retention patterns are stable across signup months (about 50 to 60% active in month 1, about 25% by month 5), so the steepest loss happens in the first month after signup.</figcaption>
+                <figcaption><strong>Cohorts.</strong> Retention patterns are stable across signup months (about 50 to 60% active in month 1, about 25% by month 5), so the steepest loss happens in the first month. (Share of each signup cohort active in each later month.)</figcaption>
             </figure>
             <figure>
                 <button class="img-button" type="button" aria-label="Enlarge A/B test results chart">
-                    <img src="assets/images/32_experiment_dashboard.png" alt="A/B test: conversion 26.9 percent control versus 30.4 percent treatment, ARPU 7.02 versus 8.80 euros, with 95 percent confidence intervals" loading="lazy" width="2234" height="857">
+                    <img src="assets/images/32_experiment_dashboard.png" alt="A/B test: conversion 26.89 percent control versus 30.45 percent treatment, ARPU 7.02 versus 8.80 euros, with 95 percent confidence intervals" loading="lazy" width="2234" height="857">
                 </button>
-                <figcaption><strong>Experiment.</strong> The simplified booking flow lifted conversion from 26.9% to 30.4% (+3.6 pp, z = 2.78, p &lt; 0.01) and ARPU from €7.02 to €8.80.</figcaption>
+                <figcaption><strong>Experiment.</strong> The simplified booking flow lifted conversion from 26.89% to 30.45% (+3.55 pp) and ARPU from €7.02 to €8.80. Full statistics below.</figcaption>
             </figure>
         </div>
         <dialog id="imgDialog" aria-label="Enlarged chart">
             <img id="imgDialogContent" src="" alt="">
         </dialog>
+    </section>
+
+    <section id="experiment">
+        <h2>A/B Test: Simplified Booking Flow</h2>
+        <p>Users were split into control (current flow) and treatment (simplified flow). Conversion is the share of users with at least one completed booking. Rates are shown to two decimals so the difference adds up exactly.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Metric</th><th>Control</th><th>Treatment</th><th>Difference</th></tr></thead>
+                <tbody>
+                    <tr><td>Users</td><td>2,484</td><td>2,516</td><td>–</td></tr>
+                    <tr><td>Converted users</td><td>668</td><td>766</td><td>–</td></tr>
+                    <tr><td>Conversion rate</td><td>26.89%</td><td>30.45%</td><td><strong>+3.55 pp</strong> (+13.2% relative)</td></tr>
+                    <tr><td>95% CI of the difference</td><td colspan="2"></td><td>1.05 to 6.06 pp</td></tr>
+                    <tr><td>Two-proportion z-test</td><td colspan="2"></td><td>z = 2.78, p = 0.006</td></tr>
+                    <tr><td>Revenue per user (ARPU)</td><td>€7.02</td><td>€8.80</td><td>+€1.78 (Welch t-test p &lt; 0.001)</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><strong>Decision:</strong> the uplift is statistically significant and the confidence interval excludes zero, so the recommendation is to roll out the simplified flow and monitor conversion and ARPU after launch.</p>
     </section>
 
     <section id="sql">
@@ -130,9 +149,21 @@ ORDER BY stage_order;</code></pre>
 
     <section id="powerbi">
         <h2>Power BI Report</h2>
-        <p>Six pages built on the same data: <strong>Executive Overview</strong> (KPI cards, trend lines, slicers), <strong>User Behaviour</strong>, <strong>Product Funnel</strong>, <strong>Retention Analysis</strong> (cohort matrix, D1/D7/D30), <strong>Experiment Analysis</strong> (control vs treatment, uplift) and <strong>Executive Recommendations</strong>. The measures are written in DAX, for example <em>Day 7 Retention %</em>, <em>Experiment Uplift pp</em> and <em>ARPU Uplift %</em>.</p>
-        <!-- TODO: add Power BI page screenshots (assets/images/powerbi-*.png) here -->
-        <p>The <code>.pbix</code> file is in the <a href="https://github.com/Sara-Hosseini/product-analytics-case-study/tree/main/dashboard" target="_blank" rel="noopener noreferrer">GitHub repository</a>.</p>
+        <p>Six report pages on the same data model, with 27 DAX measures used across 56 visuals. Open the <a href="https://github.com/Sara-Hosseini/product-analytics-case-study/tree/main/dashboard" target="_blank" rel="noopener noreferrer"><code>.pbix</code> file on GitHub</a> in Power BI Desktop.</p>
+        <!-- POWER BI SCREENSHOTS: add assets/images/powerbi-01-executive-overview.png ... -06-...png here in a .chart-grid -->
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Page</th><th>What it shows</th><th>Key DAX measures</th></tr></thead>
+                <tbody>
+                    <tr><td>Executive Overview</td><td>8 KPI cards, monthly trends for active users, revenue, conversion and retention; slicers for country, platform, channel and date</td><td>Total Users, Active Users, Conversion Rate, ARPU, Day 30 Retention %, Experiment Uplift pp</td></tr>
+                    <tr><td>User Behaviour</td><td>User mix by country, city, platform, channel, age group and device</td><td>Total Users</td></tr>
+                    <tr><td>Product Funnel</td><td>Funnel visual from signup to booking, stage rates, completion by platform and channel</td><td>Search Rate %, Booking Start Rate %, Funnel Completion Rate %, Abandonment Rate %</td></tr>
+                    <tr><td>Retention Analysis</td><td>D1/D7/D30 cards, retention curve, cohort retention matrix, D30 by platform, channel and country</td><td>Day 1/7/30 Retention %, Cohort Retention %, Retention Curve %</td></tr>
+                    <tr><td>Experiment Analysis</td><td>Control vs treatment: users, conversion, ARPU, bookings per user and uplift</td><td>Control/Treatment Conversion Rate, Experiment Uplift pp, ARPU Uplift %, Bookings Per User</td></tr>
+                    <tr><td>Executive Recommendations</td><td>Headline KPIs with written, prioritised recommendations</td><td>Total Users, Revenue, Day 30 Retention %, Experiment Uplift pp</td></tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <section>

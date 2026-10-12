@@ -58,13 +58,12 @@
             <a class="btn btn-accent" href="#projects">See my projects</a>
             <a class="btn btn-outline" href="https://www.linkedin.com/in/sara-hosseini-analyst/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a class="btn btn-outline" href="https://github.com/Sara-Hosseini" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <!-- CV: add assets/Sara-Hosseini-CV.pdf, then uncomment:
-            <a class="btn btn-outline" href="assets/Sara-Hosseini-CV.pdf" download>Download CV (PDF)</a> -->
+            <a class="btn btn-outline" href="assets/Sara-Hosseini-CV.pdf" download>Download CV (PDF)</a>
         </div>
         <ul class="stats" aria-label="At a glance">
-            <li><a href="#experience"><strong>~7 years</strong><span>KPI, performance &amp; data-quality analysis</span></a></li>
-            <li><a href="project-analytics.html#sql"><strong>10 SQL scripts</strong><span>141,813 events: funnel, cohorts, A/B test</span></a></li>
-            <li><a href="project-analytics.html#powerbi"><strong>Power BI</strong><span>6-page report, ~30 DAX measures</span></a></li>
+            <li><a href="#experience"><strong>~7 years</strong><span>KPI &amp; performance analytics</span></a></li>
+            <li><a href="project-analytics.html#sql"><strong>SQL</strong><span>10 analysis scripts on 141,813 events</span></a></li>
+            <li><a href="project-analytics.html#powerbi"><strong>Power BI</strong><span>6-page report, 27 DAX measures</span></a></li>
             <li><a href="project-thesis.html"><strong>M.Sc. AI · 1.8</strong><span>forecasting with prediction intervals</span></a></li>
         </ul>
     </section>
@@ -104,40 +103,41 @@
     </section>
 
     <section id="skills">
-        <h2>Skills</h2>
-        <p class="note">Tools listed under "Analytics &amp; BI" are demonstrated in public code on GitHub. Each project names the tools it used.</p>
-        <div class="skills-group">
-            <h3>Analytics &amp; BI</h3>
-            <ul>
-                <li><strong>SQL</strong>: CTEs, window functions (LAG, FIRST_VALUE), cohort and funnel queries</li>
-                <li><strong>Python</strong>: pandas, NumPy, SciPy, Matplotlib, Seaborn</li>
-                <li><strong>Power BI</strong>: data model, DAX measures, multi-page reports</li>
-                <li><strong>Statistics</strong>: hypothesis testing, confidence intervals, regression</li>
-                <li><strong>Data quality</strong>: validation rules, automated tests (pytest)</li>
-                <li><strong>Git &amp; GitHub</strong>, Jupyter, SQLite</li>
-            </ul>
+        <h2>Technical Skills</h2>
+        <p class="lead">Every core skill links to the code or report that demonstrates it.</p>
+        <div class="skill-cards">
+            <article class="skill-card">
+                <h3>SQL</h3>
+                <p>CTEs, window functions (LAG, FIRST_VALUE), joins and aggregations for KPIs, funnels, D1/D7/D30 retention, monthly cohorts and A/B test statistics.</p>
+                <a href="https://github.com/Sara-Hosseini/product-analytics-case-study/tree/main/sql" target="_blank" rel="noopener noreferrer">10 analysis scripts →</a>
+            </article>
+            <article class="skill-card">
+                <h3>Python</h3>
+                <p>pandas, NumPy, SciPy, Matplotlib and Seaborn for EDA, statistical testing and charting; pytest for automated data-quality checks.</p>
+                <a href="https://github.com/Sara-Hosseini/product-analytics-case-study/tree/main/notebooks" target="_blank" rel="noopener noreferrer">6 notebooks</a> · <a href="https://github.com/Sara-Hosseini/product-analytics-case-study/tree/main/tests" target="_blank" rel="noopener noreferrer">25 tests →</a>
+            </article>
+            <article class="skill-card">
+                <h3>Power BI &amp; DAX</h3>
+                <p>Data model, 27 DAX measures (retention %, funnel rates, ARPU and experiment uplift), KPI cards, slicers and a cohort matrix across six report pages.</p>
+                <a href="project-analytics.html#powerbi">Report pages &amp; measures →</a>
+            </article>
+            <article class="skill-card">
+                <h3>Statistical Analysis</h3>
+                <p>Two-proportion z-tests, Welch t-tests, 95% confidence intervals, paired t-tests and Diebold-Mariano tests for forecast comparison.</p>
+                <a href="project-analytics.html#experiment">A/B test evaluation →</a>
+            </article>
+            <article class="skill-card">
+                <h3>Predictive Analytics</h3>
+                <p>Time-series forecasting with quantile regression (LSTM, XGBoost), walk-forward validation, baseline comparison and NLP sentiment features.</p>
+                <a href="project-thesis.html">Forecasting results →</a>
+            </article>
+            <article class="skill-card">
+                <h3>KPI &amp; Performance Analysis</h3>
+                <p>KPI definition and monitoring, planned-vs-actual and trend analysis, root-cause analysis of data discrepancies, management reporting.</p>
+                <a href="#experience">Professional experience →</a>
+            </article>
         </div>
-        <div class="skills-group">
-            <h3>Applied Analytics</h3>
-            <ul>
-                <li>KPI design &amp; performance monitoring</li>
-                <li>Conversion funnel analysis</li>
-                <li>Retention &amp; cohort analysis</li>
-                <li>Customer segmentation</li>
-                <li>A/B testing &amp; experimentation</li>
-                <li>Time-series forecasting &amp; machine learning</li>
-            </ul>
-        </div>
-        <div class="skills-group">
-            <h3>Business</h3>
-            <ul>
-                <li>Planned-vs-actual &amp; trend analysis</li>
-                <li>Requirements &amp; KPI definitions with stakeholders</li>
-                <li>Management reporting &amp; recommendations</li>
-                <li>Cross-functional work (finance, procurement, engineering)</li>
-            </ul>
-        </div>
-        <p class="note">Also: Excel, SPSS, scikit-learn, XGBoost, PyTorch/TensorFlow, Hugging Face. Languages: English (C1), German (B1, improving), Persian and Turkish (native).</p>
+        <p class="note">Also: Git, Jupyter, SQLite, scikit-learn, TensorFlow/Keras, PyTorch, Hugging Face Transformers, Excel, SPSS. Languages: English (C1), German (B1, improving), Persian and Turkish (native).</p>
     </section>
 
     <section id="projects">
@@ -146,14 +146,14 @@
         <article class="project">
             <h3>Product Analytics: Funnel, Retention and A/B Testing</h3>
             <p class="tags"><span>SQL</span><span>Python</span><span>Power BI</span><span>A/B testing</span><span>Cohorts</span></p>
-            <p><em>End-to-end case study on a simulated European mobility app (synthetic data, built for this portfolio)</em></p>
+            <p><em>End-to-end case study on a simulated European mobility app, built on a synthetic dataset I generated and validated</em></p>
             <p><strong>Business question:</strong> Where do users drop out before booking, which acquisition channels bring valuable users, and should a simplified booking flow be rolled out?</p>
-            <p><strong>What I did:</strong> Generated and validated 5,000 users and 141,813 events (23 validation checks, 25 pytest tests). Wrote 10 SQL analysis scripts covering KPIs, funnel, D1/D7/D30 retention, cohorts, segmentation and the experiment. Analysed the data in six Python notebooks and built a six-page Power BI report with about 30 DAX measures.</p>
-            <p><strong>Key findings</strong> (synthetic data, so they show the method, not real business results):</p>
+            <p><strong>What I did:</strong> Generated and validated 5,000 users and 141,813 events (23 validation checks, 25 pytest tests). Wrote 10 SQL analysis scripts (1,746 lines with the schema) covering KPIs, funnel, D1/D7/D30 retention, cohorts, segmentation and the experiment. Analysed the data in six Python notebooks and built a six-page Power BI report with 27 DAX measures.</p>
+            <p><strong>Key findings:</strong></p>
             <ul>
                 <li>The biggest leak is <strong>search to booking</strong>: 52% of users who search never start a booking, while 86.5% of started bookings complete. That points to fixing search and comparison, not checkout.</li>
                 <li>Referral users converted at 40.0% versus 23.5% for Paid Search, so channel <em>quality</em> matters more than volume.</li>
-                <li>The simplified booking flow raised conversion from 26.9% to 30.4% (+3.6 pp, p &lt; 0.01).</li>
+                <li>The simplified booking flow raised conversion from 26.89% to 30.45%: +3.55 percentage points (95% CI 1.05 to 6.06 pp, p = 0.006). ARPU rose from €7.02 to €8.80.</li>
             </ul>
             <figure class="inline-figure">
                 <img src="assets/images/23_conversion_funnel.png" alt="Conversion funnel: 5,000 signups, 3,460 started a search (69.2%), 1,657 started a booking (33.1%), 1,434 completed a booking (28.7%)" loading="lazy" width="1410" height="808">
@@ -179,7 +179,7 @@
             <ul>
                 <li>The 1-day prediction intervals hit 78.8% to 83.0% coverage against an 80% target, versus 70.1% for the XGBoost baseline.</li>
                 <li>Fine-tuning lifted sentiment macro F1 from 0.31 to 0.80.</li>
-                <li>An honest result: sentiment did not consistently reduce price error, and point accuracy was comparable to a random walk. The value is in calibrated uncertainty.</li>
+                <li>Sentiment raised 10-day directional accuracy on news-event days to 72.2% (58.2% overall), while price error stayed close to a random walk, which is typical for large-cap stocks. The model's main value is calibrated uncertainty.</li>
             </ul>
             <div class="btn-group">
                 <a class="btn" href="project-thesis.html">Detailed results</a>
@@ -189,26 +189,26 @@
     </section>
 
     <section id="experience">
-        <h2>Experience</h2>
+        <h2>Professional Experience</h2>
         <article class="experience">
             <h3>Data &amp; Reporting Analyst</h3>
-            <p><em>Baroj, Iran · Oct 2020 to Jul 2024 · construction &amp; infrastructure projects</em></p>
+            <p><em>Baroj, Iran · Oct 2020 to Jul 2024 · construction &amp; infrastructure</em></p>
             <ul>
-                <li>Produced recurring KPI and management reporting on cost, schedule, procurement and progress across several concurrent projects, consolidating data from multiple sources.</li>
-                <li>Ran planned-vs-actual and trend analysis to show project managers where cost or schedule performance was drifting.</li>
-                <li>Investigated figures that disagreed across sources, traced them to the root data and added validation checks before numbers reached management.</li>
-                <li>Prepared, cleaned and cross-checked data from multiple sources, and standardised KPI definitions and reporting templates with finance, procurement and engineering.</li>
-                <!-- VERIFY: add the tools used at Baroj (e.g. Excel, Python scripts) once confirmed -->
+                <li><strong>KPI monitoring:</strong> consolidated cost, schedule, procurement and progress data from multiple project sources into recurring KPI and management reports for several concurrent projects.</li>
+                <li><strong>Performance analysis:</strong> ran planned-vs-actual and trend analysis to show project managers where cost and schedule performance were drifting from plan.</li>
+                <li><strong>Root-cause analysis:</strong> investigated figures that disagreed across reporting sources, traced each discrepancy to its source data and applied validation checks before numbers reached management.</li>
+                <li><strong>Data quality &amp; KPI governance:</strong> standardised KPI definitions, reporting templates and documentation across concurrent projects, keeping figures comparable between periods and teams.</li>
+                <li><strong>Stakeholder work:</strong> gathered reporting requirements with project managers, engineers, finance and procurement, and translated them into consistent management reporting.</li>
             </ul>
         </article>
 
         <article class="experience">
             <h3>Junior Data &amp; Reporting Analyst</h3>
-            <p><em>Abad Boom Pars Co., Iran · Oct 2017 to Sep 2020 · construction projects</em></p>
+            <p><em>Abad Boom Pars Co., Iran · Oct 2017 to Sep 2020 · construction</em></p>
             <ul>
-                <li>Collected, organised and validated cost, schedule and progress data for recurring project reporting.</li>
-                <li>Prepared KPI summaries and progress reports for project managers, and supported senior analysts with schedule and performance analysis.</li>
-                <li>Worked with engineering and project teams to verify reporting accuracy and resolve data discrepancies.</li>
+                <li>Collected, validated and structured cost, schedule and progress data behind recurring project KPI reporting.</li>
+                <li>Produced KPI summaries and progress reports for project managers and supported senior analysts with schedule and performance analysis.</li>
+                <li>Resolved data discrepancies with engineering and project teams and maintained the reporting datasets and their documentation.</li>
             </ul>
         </article>
     </section>
